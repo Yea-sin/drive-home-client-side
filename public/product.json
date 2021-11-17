@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Awesome Class Model",
+    "price": 120000,
+    "description": "A masterful combination of style, power, sporty handling and comfort.",
+    "img": "https://i.ibb.co/3rHhQFf/1-2-car-png-picture.png"
+  },
+  {
+    "id": 2,
+    "title": "Awesome Class Model",
+    "price": 120000,
+    "description": "A masterful combination of style, power, sporty handling and comfort.",
+    "img": "https://i.ibb.co/3rHhQFf/1-2-car-png-picture.png"
+  },
+  {
+    "id": 3,
+    "title": "Awesome Class Model",
+    "price": 120000,
+    "description": "A masterful combination of style, power, sporty handling and comfort.",
+    "img": "https://i.ibb.co/3rHhQFf/1-2-car-png-picture.png"
+  },
+  {
+    "id": 4,
+    "title": "Awesome Class Model",
+    "price": 120000,
+    "description": "A masterful combination of style, power, sporty handling and comfort.",
+    "img": "https://i.ibb.co/3rHhQFf/1-2-car-png-picture.png"
+  },
+  {
+    "id": 5,
+    "title": "Awesome Class Model",
+    "price": 120000,
+    "description": "A masterful combination of style, power, sporty handling and comfort.",
+    "img": "https://i.ibb.co/3rHhQFf/1-2-car-png-picture.png"
+  },
+  {
+    "id": 6,
+    "title": "Awesome Class Model",
+    "price": 120000,
+    "description": "A masterful combination of style, power, sporty handling and comfort.",
+    "img": "https://i.ibb.co/3rHhQFf/1-2-car-png-picture.png"
+  },
+  {
+    "id": 7,
+    "title": "Awesome Class Model",
+    "price": 120000,
+    "description": "A masterful combination of style, power, sporty handling and comfort.",
+    "img": "https://i.ibb.co/3rHhQFf/1-2-car-png-picture.png"
+  },
+  {
+    "id": 8,
+    "title": "Awesome Class Model",
+    "price": 120000,
+    "description": "A masterful combination of style, power, sporty handling and comfort.",
+    "img": "https://i.ibb.co/3rHhQFf/1-2-car-png-picture.png"
+  },
+  {
+    "id": 9,
+    "title": "Awesome Class Model",
+    "price": 120000,
+    "description": "A masterful combination of style, power, sporty handling and comfort.",
+    "img": "https://i.ibb.co/3rHhQFf/1-2-car-png-picture.png"
+  },
+  {
+    "id": 10,
+    "title": "Awesome Class Model",
+    "price": 120000,
+    "description": "A masterful combination of style, power, sporty handling and comfort.",
+    "img": "https://i.ibb.co/3rHhQFf/1-2-car-png-picture.png"
+  }
+]
