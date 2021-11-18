@@ -1,5 +1,7 @@
 import { Container, Grid, Typography } from "@mui/material";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import CarRentalIcon from "@mui/icons-material/CarRental";
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 import React from "react";
 
 const Services = () => {
@@ -13,9 +15,9 @@ const Services = () => {
       }}>
       <Grid container>
         <Grid item xs={12} sm={12} md={4}>
-          <Typography component="div" sx={{ p: 8, backgroundColor: "#E22937" }}>
+          <Typography component="div" sx={{ p: 6, backgroundColor: "#E22937" }}>
             <Typography sx={{ fontFamily: "monospace" }}>
-              <DirectionsCarIcon />
+              <DirectionsCarIcon sx={{ fontSize: "50px" }} />
             </Typography>
             <Typography
               variant="h6"
@@ -27,15 +29,15 @@ const Services = () => {
               }}>
               Buy and Sale Vehiclese
             </Typography>
-            <Typography sx={{ fontFamily: "monospace" }}>
+            <Typography variant="caption" sx={{ fontFamily: "monospace" }}>
               We buy and sale barand new car and also used car of any brand
             </Typography>
           </Typography>
         </Grid>
         <Grid item xs={12} sm={12} md={4}>
-          <Typography component="div" sx={{ p: 8, backgroundColor: "#052046" }}>
+          <Typography component="div" sx={{ p: 6, backgroundColor: "#052046" }}>
             <Typography sx={{ fontFamily: "monospace" }}>
-              <DirectionsCarIcon />
+              <CarRentalIcon sx={{ fontSize: "50px" }} />
             </Typography>
             <Typography
               variant="h6"
@@ -47,15 +49,15 @@ const Services = () => {
               }}>
               Buy and Sale Vehiclese
             </Typography>
-            <Typography sx={{ fontFamily: "monospace" }}>
+            <Typography variant="caption" sx={{ fontFamily: "monospace" }}>
               We buy and sale barand new car and also used car of any brand
             </Typography>
           </Typography>
         </Grid>
         <Grid item xs={12} sm={12} md={4}>
-          <Typography component="div" sx={{ p: 8, backgroundColor: "#000" }}>
+          <Typography component="div" sx={{ p: 6, backgroundColor: "#000" }}>
             <Typography sx={{ fontFamily: "monospace" }}>
-              <DirectionsCarIcon />
+              <MiscellaneousServicesIcon sx={{ fontSize: "50px" }} />
             </Typography>
             <Typography
               variant="h6"
@@ -67,7 +69,7 @@ const Services = () => {
               }}>
               Buy and Sale Vehiclese
             </Typography>
-            <Typography sx={{ fontFamily: "monospace" }}>
+            <Typography variant="caption" sx={{ fontFamily: "monospace" }}>
               We buy and sale barand new car and also used car of any brand
             </Typography>
           </Typography>

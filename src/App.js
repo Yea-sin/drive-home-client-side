@@ -8,37 +8,41 @@ import NotFound from "./Pages/Shared/NotFound/NotFound/NotFound";
 import Register from "./Pages/Register/Register";
 import AllProducts from "./Pages/AllProducts/AllProducts";
 import Purchase from "./Pages/Purchase/Purchase";
+import AuthProvider from "./Context/AuthProvider";
+import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header />
-        <Switch>
-          <Route path="/purchase">
-            <Purchase />
-          </Route>
-          <Route path="/allProducts">
-            <AllProducts />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header />
+          <Switch>
+            <PrivateRoute path="/purchase">
+              <Purchase />
+            </PrivateRoute>
+            <Route path="/allProducts">
+              <AllProducts />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

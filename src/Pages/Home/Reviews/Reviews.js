@@ -1,11 +1,12 @@
-import { Container, Typography } from "@mui/material";
-import "./Reviews.css";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import "./Reviews.css";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
+import { Container, Typography } from "@mui/material";
+import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Navigation } from "swiper";
-import { borderRadius, Box } from "@mui/system";
+import { Box } from "@mui/system";
+import Paper from "@mui/material/Paper";
 SwiperCore.use([Pagination, Navigation]);
 
 const Reviews = () => {
@@ -36,7 +37,7 @@ const Reviews = () => {
         }}
         className="mySwiper">
         <SwiperSlide>
-          <Box>
+          <Paper elevation={3} sx={{ pb: 2, px: 1 }}>
             <Typography>{customer.review}</Typography>
             <Box
               sx={{
@@ -59,10 +60,10 @@ const Reviews = () => {
                 {customer.name}
               </Typography>
             </Box>
-          </Box>
+          </Paper>
         </SwiperSlide>
         <SwiperSlide>
-          <Box>
+          <Paper elevation={3} sx={{ pb: 2, px: 1 }}>
             <Typography>{customer.review}</Typography>
             <Box
               sx={{
@@ -85,10 +86,10 @@ const Reviews = () => {
                 {customer.name}
               </Typography>
             </Box>
-          </Box>
+          </Paper>
         </SwiperSlide>
         <SwiperSlide>
-          <Box>
+          <Paper elevation={3} sx={{ pb: 2, px: 1 }}>
             <Typography>{customer.review}</Typography>
             <Box
               sx={{
@@ -111,10 +112,10 @@ const Reviews = () => {
                 {customer.name}
               </Typography>
             </Box>
-          </Box>
+          </Paper>
         </SwiperSlide>
         <SwiperSlide>
-          <Box>
+          <Paper elevation={3} sx={{ pb: 2, px: 1 }}>
             <Typography>{customer.review}</Typography>
             <Box
               sx={{
@@ -137,7 +138,7 @@ const Reviews = () => {
                 {customer.name}
               </Typography>
             </Box>
-          </Box>
+          </Paper>
         </SwiperSlide>
       </Swiper>
     </Container>
