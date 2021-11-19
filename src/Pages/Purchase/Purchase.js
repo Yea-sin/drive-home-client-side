@@ -13,7 +13,7 @@ const Purchase = () => {
 
   const [product, setProduct] = useState({});
   useEffect(() => {
-    const url = `http://localhost:5000/products/${purchaseId}`;
+    const url = `http://glacial-beach-45386.herokuapp.com/products/${purchaseId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -23,12 +23,14 @@ const Purchase = () => {
   const onSubmit = (data) => {
     data.order = orderedProduct;
     console.log(data.order);
-    axios.post("http://localhost:5000/orders", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("Successfully Submitted");
-        reset();
-      }
-    });
+    axios
+      .post("http://glacial-beach-45386.herokuapp.com/orders", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("Successfully Submitted");
+          reset();
+        }
+      });
   };
 
   return (

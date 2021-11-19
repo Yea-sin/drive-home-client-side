@@ -7,13 +7,13 @@ const Myorders = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${user.email}`)
+    fetch(`http://glacial-beach-45386.herokuapp.com/orders?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(`http://glacial-beach-45386.herokuapp.com/orders/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

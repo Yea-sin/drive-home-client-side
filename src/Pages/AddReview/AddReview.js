@@ -6,12 +6,14 @@ import { useForm } from "react-hook-form";
 const AddReview = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/reviews", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("added successfully");
-        reset();
-      }
-    });
+    axios
+      .post("http://glacial-beach-45386.herokuapp.com/reviews", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("added successfully");
+          reset();
+        }
+      });
   };
   return (
     <div>
