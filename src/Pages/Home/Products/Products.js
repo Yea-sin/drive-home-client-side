@@ -6,7 +6,7 @@ import { Container, Typography } from "@mui/material";
 const Products = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://glacial-beach-45386.herokuapp.com/products")
+    fetch("https://glacial-beach-45386.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
