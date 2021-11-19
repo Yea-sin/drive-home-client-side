@@ -25,7 +25,7 @@ const useFirebase = () => {
     setIsloading(true);
     return signInWithPopup(auth, googleProvider)
       .catch((e) => setError(e.message))
-      .finally(setIsloading(false));
+      .finally(() => setIsloading(false));
   };
 
   const logOut = () => {
@@ -36,7 +36,7 @@ const useFirebase = () => {
         setUser({});
       })
       .catch((e) => setError(e.message))
-      .finally(setIsloading(false));
+      .finally(() => setIsloading(false));
   };
 
   const registerUser = (email, password, history, name) => {
@@ -53,7 +53,7 @@ const useFirebase = () => {
           .catch((e) => setError(e.message));
       })
       .catch((e) => setError(e.message))
-      .finally(setIsloading(false));
+      .finally(() => setIsloading(false));
   };
 
   const loginUser = (email, password, location, history) => {
@@ -66,7 +66,7 @@ const useFirebase = () => {
         history.replace(redirect);
       })
       .catch((e) => setError(e.message))
-      .finally(setIsloading(false));
+      .finally(() => setIsloading(false));
   };
 
   useEffect(() => {
@@ -80,30 +80,6 @@ const useFirebase = () => {
     setIsloading(false);
     return () => unSubscribed;
   }, []);
-
-  /* 
-  {user?.email ? (
-        <Box sx={{ my: 2 }}>
-          <Button
-            onClick={logOut}
-            variant="contained"
-            sx={{ py: 2 }}
-            type="submit">
-            Sing Out
-          </Button>
-        </Box>
-      ) : (
-        <Box sx={{ my: 2 }}>
-          <Button
-            onClick={handleLogIn}
-            variant="contained"
-            sx={{ py: 2 }}
-            type="submit">
-            Sing In Using Google
-          </Button>
-        </Box>
-      )}
-   */
 
   return {
     loginUser,

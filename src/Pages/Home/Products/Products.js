@@ -6,7 +6,7 @@ import { Container, Typography } from "@mui/material";
 const Products = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("./product.json")
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -25,7 +25,7 @@ const Products = () => {
         spacing={{ xs: 2, md: 2 }}
         columns={{ xs: 1, sm: 4, md: 12 }}>
         {products.slice(0, 6).map((product) => (
-          <Product key={product.id} product={product} />
+          <Product key={product._id} product={product} />
         ))}
       </Grid>
     </Container>

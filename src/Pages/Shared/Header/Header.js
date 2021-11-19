@@ -1,62 +1,77 @@
 import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import { NavLink } from "react-router-dom";
+import "./Header.css";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { HashLink } from "react-router-hash-link";
 import useAuth from "../../../Hooks/useAuth";
 
 const Header = () => {
   const { user, logOut } = useAuth();
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        style={{ backgroundColor: "#0B2447" }}
-        sx={{ pb: 2 }}
-        position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <NavLink to="/">
-              <span className="text-light">Drive-</span>
-              <span className="text-danger">Home</span>
-            </NavLink>
-          </Typography>
-          <NavLink to="/home">
-            <Button sx={{ color: "white" }}>Home</Button>
-          </NavLink>
-          <NavLink to="/allProducts">
-            <Button sx={{ color: "white" }}>Discover</Button>
-          </NavLink>
-          {user?.email ? (
-            <div>
-              <Button onClick={logOut} sx={{ color: "#DC3545" }}>
-                Logout
-              </Button>
-            </div>
-          ) : (
-            <div>
-              <NavLink to="/login">
-                <Button sx={{ color: "#DC3545" }}>Login</Button>
-              </NavLink>
-              <NavLink to="/register">
-                <Button sx={{ color: "#DC3545" }}>Sing Up</Button>
-              </NavLink>
-            </div>
-          )}
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <div style={{ marginBottom: "115px" }}>
+      <Navbar className="header-bg py-4 fixed-top" expand="lg">
+        <Container>
+          <Navbar.Brand as={HashLink} to="/home#">
+            <h3>
+              {" "}
+              <span className="text-light">Drive</span>
+              <span className="text-danger">Home</span>{" "}
+            </h3>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto menu">
+              <Nav.Link as={HashLink} to="/home" className="text-light">
+                Home
+              </Nav.Link>
+              <Nav.Link as={HashLink} to="/allProducts" className="text-light">
+                Discover
+              </Nav.Link>
+
+              {user.email ? (
+                <span>
+                  <NavDropdown title={user.displayName} id="basic-nav-dropdown">
+                    <NavDropdown.Item>
+                      <img
+                        src={user.photoURL}
+                        className="rounded-circle"
+                        alt=""
+                      />
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/pay">
+                      Pay
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/myOrders">
+                      My Orders
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/manageProducts">
+                      Manage Products
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/addProducts">
+                      Add Products
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/addReviews">
+                      Add Reviews
+                    </NavDropdown.Item>
+                    <NavDropdown.Item onClick={logOut}>
+                      Log Out
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </span>
+              ) : (
+                <div className="d-flex">
+                  <Nav.Link as={HashLink} to="/login">
+                    Login
+                  </Nav.Link>
+                  <Nav.Link as={HashLink} to="/register">
+                    Register
+                  </Nav.Link>
+                </div>
+              )}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   );
 };
 
