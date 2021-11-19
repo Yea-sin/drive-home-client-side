@@ -12,7 +12,6 @@ import AuthProvider from "./Context/AuthProvider";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import ManageProducts from "./Pages/ManageProducts/ManageProducts";
 import AddProduct from "./Pages/AddProduct/AddProduct";
-import Dashboard from "./Pages/DashBoard/Dashboard";
 import Myorders from "./Pages/MyOrders/Myorders";
 import AddReview from "./Pages/AddReview/AddReview";
 import Pay from "./Pages/Pay/Pay";
