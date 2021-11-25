@@ -31,7 +31,8 @@ const Myorders = () => {
   return (
     <Container sx={{ p: 6 }}>
       <Typography variant="h3" sx={{ mb: 4 }}>
-        My <span className="text-danger">Orders</span>
+        <span className="text-secondary">Manage</span> My{" "}
+        <span className="text-danger">Orders</span>
       </Typography>
       {orders.map((order) => (
         <Box key={order._id}>

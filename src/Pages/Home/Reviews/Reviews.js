@@ -39,7 +39,6 @@ const Reviews = () => {
         </Typography>
       </Typography>
       <div>
-        <h2> Single Item</h2>
         <Slider {...settings}>
           {reviews.map((feedback) => (
             <Review key={feedback._id} feedback={feedback} />
