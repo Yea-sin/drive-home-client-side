@@ -19,7 +19,6 @@ const Register = () => {
     const field = e.target.name;
     const value = e.target.value;
     const newLoginData = { ...loginData };
-    // console.log(newLoginData);
     newLoginData[field] = value;
 
     setLoginData(newLoginData);
@@ -30,7 +29,6 @@ const Register = () => {
     registerUser(loginData.email, loginData.password, history, loginData.name);
   };
 
-  console.log(user);
   return (
     <Box>
       <Typography sx={{ mt: 5 }} variant="h4">

@@ -15,6 +15,7 @@ import AddProduct from "./Pages/AddProduct/AddProduct";
 import Myorders from "./Pages/MyOrders/Myorders";
 import AddReview from "./Pages/AddReview/AddReview";
 import Pay from "./Pages/Pay/Pay";
+import MakeAdmin from "./Pages/MakeAdmin/MakeAdmin";
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/addProducts">
               <AddProduct />
+            </PrivateRoute>
+            <PrivateRoute path="/makeAdmin">
+              <MakeAdmin />
             </PrivateRoute>
             <PrivateRoute path="/pay">
               <Pay />

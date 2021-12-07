@@ -17,6 +17,7 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
   const [isLoading, setIsloading] = useState(true);
+  const [admin, setAdmin] = useState(false);
 
   const googleProvider = new GoogleAuthProvider();
   const auth = getAuth();
@@ -24,6 +25,10 @@ const useFirebase = () => {
   const singInUsingGoogle = () => {
     setIsloading(true);
     return signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        saveUser(user.email, user.displayName, "PUT");
+      })
       .catch((e) => setError(e.message))
       .finally(() => setIsloading(false));
   };
@@ -48,6 +53,7 @@ const useFirebase = () => {
         history.replace("/");
         const newUser = { email, displayName: name };
         setUser(newUser);
+        saveUser(email, name, "POST");
         updateProfile(auth.currentUser, { displayName: name })
           .then(() => setError(""))
           .catch((e) => setError(e.message));
@@ -60,7 +66,6 @@ const useFirebase = () => {
     setIsloading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        // setUser(result.user);
         setError("");
         const redirect = location.state?.from || "/";
         history.replace(redirect);
@@ -68,6 +73,12 @@ const useFirebase = () => {
       .catch((e) => setError(e.message))
       .finally(() => setIsloading(false));
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
 
   useEffect(() => {
     const unSubscribed = onAuthStateChanged(auth, (user) => {
@@ -81,11 +92,22 @@ const useFirebase = () => {
     return () => unSubscribed;
   }, []);
 
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName };
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then();
+  };
   return {
     loginUser,
     registerUser,
     singInUsingGoogle,
     logOut,
+    admin,
     isLoading,
     user,
     error,

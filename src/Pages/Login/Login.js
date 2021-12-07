@@ -8,7 +8,6 @@ import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   const { singInUsingGoogle, user, logOut, loginUser, error } = useAuth();
-  console.log(error);
   const [loginData, setLoginData] = useState([]);
   const location = useLocation();
   const history = useHistory();
@@ -28,7 +27,6 @@ const Login = () => {
     const value = e.target.value;
     const newLoginData = { ...loginData };
     newLoginData[field] = value;
-    console.log(newLoginData);
 
     setLoginData(newLoginData);
   };

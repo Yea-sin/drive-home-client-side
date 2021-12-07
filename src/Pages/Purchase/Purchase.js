@@ -18,11 +18,9 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
-  // console.log(product);
   let orderedProduct = product;
   const onSubmit = (data) => {
     data.order = orderedProduct;
-    console.log(data.order);
     axios
       .post("https://glacial-beach-45386.herokuapp.com/orders", data)
       .then((res) => {

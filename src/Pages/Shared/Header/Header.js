@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link";
 import useAuth from "../../../Hooks/useAuth";
 
 const Header = () => {
-  const { user, logOut } = useAuth();
+  const { user, logOut, admin } = useAuth();
   return (
     <div style={{ marginBottom: "115px" }}>
       <Navbar className="header-bg py-4 fixed-top" expand="lg">
@@ -36,6 +36,7 @@ const Header = () => {
                         className="rounded-circle"
                         alt=""
                       />
+                      {admin && <h2>Admin</h2>}
                     </NavDropdown.Item>
                     <NavDropdown.Item as={HashLink} to="/pay">
                       Pay
@@ -43,15 +44,23 @@ const Header = () => {
                     <NavDropdown.Item as={HashLink} to="/myOrders">
                       My Orders
                     </NavDropdown.Item>
-                    <NavDropdown.Item as={HashLink} to="/manageProducts">
-                      Manage Products
-                    </NavDropdown.Item>
-                    <NavDropdown.Item as={HashLink} to="/addProducts">
-                      Add Products
-                    </NavDropdown.Item>
+
                     <NavDropdown.Item as={HashLink} to="/addReviews">
                       Add Reviews
                     </NavDropdown.Item>
+                    {admin && (
+                      <div>
+                        <NavDropdown.Item as={HashLink} to="/manageProducts">
+                          Manage Products
+                        </NavDropdown.Item>
+                        <NavDropdown.Item as={HashLink} to="/addProducts">
+                          Add Products
+                        </NavDropdown.Item>
+                        <NavDropdown.Item as={HashLink} to="/makeAdmin">
+                          Make Admin
+                        </NavDropdown.Item>
+                      </div>
+                    )}
                     <NavDropdown.Item onClick={logOut}>
                       Log Out
                     </NavDropdown.Item>
